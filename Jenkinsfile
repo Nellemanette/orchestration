@@ -9,13 +9,6 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat 'echo "banane"'
-                bat 'Docker --version'
-            }
-        }
-        stage('Docker Build') {
-            agent any
-            steps {
                 bat 'docker-compose up'
             }
         }
