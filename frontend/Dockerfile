@@ -3,8 +3,8 @@ FROM node:16
 WORKDIR /usr/app
 
 COPY * ./
-COPY ./public /public
-COPY ./src /src
+COPY ./public ./public
+COPY ./src ./src
 RUN ls -l
 RUN npm install 
 
