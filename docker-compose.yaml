@@ -1,0 +1,9 @@
+services:
+    front:
+        build: ./frontend-orchestration
+        ports:
+            - "8081:8081"
+    back:
+        build: ./backend-orchestration
+        ports:
+            - "5000:5000"
