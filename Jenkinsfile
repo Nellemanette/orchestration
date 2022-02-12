@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    boolean testPassed = true
     stages {
         stage('Pull') {
             steps {
@@ -8,7 +9,6 @@ pipeline {
         }
         stage('Testing') {
             steps {
-                boolean testPassed = true
                 try{
                     bat 'npm test'
                 }catch (Exception e){
