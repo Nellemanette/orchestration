@@ -6,9 +6,9 @@ pipeline {
                 git([url:'https://github.com/Nellemanette/orchestration.git', branch:'develop'])
             }
         }
-        boolean testPassed = true
         stage('Testing') {
             steps {
+                boolean testPassed = true
                 try{
                     bat 'npm test'
                 }catch (Exception e){
