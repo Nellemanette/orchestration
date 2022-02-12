@@ -6,7 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var cors = require('cors')
+var cors = require(cors, ({
+  origin: 'http://localhost:3000/'
+}))
 
 
 var app = express();
@@ -38,6 +40,7 @@ app.get('/home', function(req, res){
       req.session.pageCountByCurrentUserOrAnyNameYouWant = 0;
   req.session.pageCountByCurrentUserOrAnyNameYouWant++;
   console.log(req.session.pageCountByCurrentUserOrAnyNameYouWant)
+  res.set('Access-Control-Allow-Credentials', true)
   res.send({
       pageCount: req.session.pageCountByCurrentUserOrAnyNameYouWant
   });
@@ -67,11 +70,13 @@ app.use(function(err, req, res, next) {
 
 var PORT = 5000;
  
-app.listen(PORT, function(err){
+const run = app.listen(PORT, HIST, function(err){
     if (err) console.log("Error in server setup")
-    console.log("Server listening on Port", PORT);
+    console.log("Server listening on Port http://", PORT, ":", HOST);
 })
 
-
+module.exports = {
+  run: run
+}
       
 module.exports = app;

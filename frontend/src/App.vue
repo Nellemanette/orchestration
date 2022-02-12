@@ -22,7 +22,7 @@ export default {
   }),
   mounted() {
        axios
-        .get('http://localhost:5000/home', {
+        .get('http://localhost:5000/home', { withCredentials: true }, {
           headers: {
             "Content-Type": "application/json",
           },

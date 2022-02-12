@@ -8,6 +8,6 @@ COPY ./src ./src
 RUN ls -l
 RUN npm install 
 
-EXPOSE 8081
+EXPOSE 3000
 
 CMD ["npm","run", "serve"]
